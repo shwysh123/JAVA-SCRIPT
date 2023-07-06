@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ---------------<br>
+    <button onClick="bom.sound()">짖어!</button><br>
+    <button onClick="bom.toString()">아이 빌리브..</button><br>
+    ---------------<br>
+    <button onClick="myCar.acel()">부아아앙</button><br>
+    <button onClick="myCar.showInfo()">자동차</button><br>
+    ---------------
+
+<script>
+
+const bom={
+    //속성
+    name : "봄이",
+    kind : "시고르자브종",
+    age : 1,
+    //기능
+    sound : function(){
+        alert(this.name + "가 왈왈!");
+    },
+    toString : function(){
+        alert("우리의 귀여운 "+this.name+"는 "+this.age+"살이고요. "+this.kind+" 중에 제일 귀여워용.");
+    }
+}
+
+const myCar={
+    //속성
+    owner : "경민이",
+    category : "모닝",
+    fuelkind : "가솔린",
+    speed : "20",
+    //기능
+    acel : function(){
+        alert("엑셀을 밟습니다.");
+    },
+    showInfo : function(){
+        alert("차 주인 : "+this.owner+"\n차종 : "+this.category+"("+this.fuelkind+")\n현재속도 : "+this.speed);
+    }
+}
+
+</script>
+
+</body>
+</html>
