@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+ <!--  
+    클로저
+    클로저는 내부 함수가 외부 함수의 변수에 접근할 수 있는 것을 의미
+    정보 은닉(Information Hiding): 클로저를 사용하여 외부에서 접근할 수 없도록 변수를 보호하고, 함수를 통해서만 접근 가능하도록 만들 수 있습니다.
+    데이터 보존(Data Persistence): 클로저를 사용하여 함수가 생성될 당시의 환경을 유지하면서, 데이터를 영구적으로 보존할 수 있습니다.
+    비동기 처리(Asynchronous Operations): 클로저를 사용하여 비동기적인 작업에서 결과를 유지하고, 필요할 때에 접근할 수 있도록 할 수 있습니다.
+    -->
+
+    <script>
+        //01 기본
+        function outerFunc() {
+            let state = 0;  // 상태변수
+            function addStateOne() {   //상태변수의 값을 1증가
+                state++;
+                console.log("cur State Val : ", state);
+            }
+            return addStateOne; //함수를 리턴(함수명이 리턴되면 만들어진 함수의 위치정보(주소)가 반환)
+        }
+        const closureFunc = outerFunc();
+        closureFunc();
+        closureFunc();
+        closureFunc();
+        closureFunc();
+
+        //02
+        const func2 = () => {
+            let num;
+            const getNum = () => { return num; }
+            const setNum = (n) => { num = n; }
+            return{
+                get:getNum,
+                set:setNum
+            }
+        }
+        const closure2=func2();
+        console.log(closure2);
+        closure2.set(100);
+        console.log(closure2);
+        console.log(closure2.get());
+    </script>
+</body>
+
+</html>
