@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            margin: 15px;
+        }
+        .btn{
+            width:100px; height:30px;
+            background-color: gainsboro;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 1.3s;
+        }
+        .btn--bg0{background-color: aqua;}
+        .btn--bg1{background-color: blue;}
+        .btn--bg2{background-color: orchid;}
+        .btn--bg3{background-color: skyblue;}
+        .btn--bg4{background-color: aquamarine;}
+        .btn--xl{font-size:1.4rem;}
+    </style>
+    <div class="btn">더워</div>
+    <div class="btn">잠와</div>
+    <div class="btn">배고파</div>
+    <div class="btn">이거완전</div>
+    <div class="btn">걸배이네</div>
+    <script>
+        const btnEls = document.querySelectorAll('.btn');
+        console.log(btnEls);
+        btnEls.forEach((btn,idx)=>{
+            btn.addEventListener('mouseover',function(){
+                    console.log(btn.idx);
+                    btn.classList.add('btn--bg'+idx);
+            })
+        btn.addEventListener('mouseleave',function(){
+            console.log(btn,idx);
+            btn.classList.remove('btn--bg'+idx);
+            btn.classList.remove('btn--xl');
+        })})
+    </script>
+</body>
+</html>
