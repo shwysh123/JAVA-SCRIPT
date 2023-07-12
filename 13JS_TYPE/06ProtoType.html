@@ -19,7 +19,7 @@
         console.log(Object.assign(obj,ob,ob1))//obj에 ob1,ob2를 복사
 
         Object.freeze(obj); // 객체수정 불가
-        Object.seal(obg);   // 새속성 추가 불가
+        Object.seal(obj);   // 새속성 추가 불가
 
         //-----------------------------------------
         //Object.prototype : 객체가 상속을 구현하는데 사용되는 메커니즘,Object객체 내에 구성
@@ -29,8 +29,35 @@
         //          따라서 Object.prototype에는 다양한 함수들이 정의되어 있습니다.
         //          일부 중요한 함수들은 다음과 같습니다.
         //
+        //  toString(): 객체를 문자열로 변환하여 반환합니다.
+        //  hasOwnProperty(): 객체가 특정 속성을 직접 소유하고 있는지 여부를 확인합니다.
+        //  isPrototypeOf(): 객체가 다른 객체의 프로토타입 체인에 존재하는지 여부를 확인합니다.
+        //  valueOf(): 객체의 원시 값 표현을 반환합니다.
+        //  toLocaleString():객체를 지역화된 문자열로 변환하여 반환합니다.
+        //  propertyIsEnumerable(): 특정 속성이 열거 가능한 속성인지 여부를 확인합니다.
+        //  constructor: 객체를 생성한 생성자 함수를 참조합니다.
+        
+        //  const ob={name:'a',age:11}
+        //  console.log(ob);
+        //  console.log(Object.prototype)
 
-        function Person(name)
+        //  함수정의시 생성차처럼 사용할수 있다.
+
+        function Person(name){
+            this.name=name;
+        }
+        let person1 = new Person('박영민');
+        console.log(person1);
+        console.log(person1.toString());
+
+        //Person 프로토타입에 기능 추가
+        Person.prototype.hello = function(){
+            console.log("안녕하세요, 저는 "+this.name+" 입니다.");
+        }
+
+        let person2 = new Person('이상화');
+        console.log('person2',person2);
+        person2.hello();
     </script>
     </script>
 </body>
